@@ -1,0 +1,904 @@
+<!doctype html>
+<html lang="th">
+  <meta charset="utf-8" /><meta
+    name="viewport"
+    content="width=device-width,initial-scale=1"
+  /><title>แบบทดสอบ บท 07–08 | ฉบับนักศึกษา</title
+  ><style>
+    body {
+      margin: 0;
+      background: #f4f6fa;
+      color: #17283d;
+      font-family: Tahoma, "Noto Sans Thai", sans-serif;
+      font-size: 17px;
+      line-height: 1.85;
+    }
+    main {
+      max-width: 900px;
+      margin: auto;
+      padding: 32px 20px;
+    }
+    h1 {
+      line-height: 1.4;
+    }
+    fieldset {
+      background: white;
+      border: 1px solid #bac8d8;
+      border-radius: 12px;
+      padding: 20px;
+      margin: 24px 0;
+      break-inside: avoid;
+    }
+    legend {
+      font-weight: bold;
+      padding: 0 8px;
+      max-width: 100%;
+    }
+    label {
+      display: block;
+      padding: 8px;
+      cursor: pointer;
+    }
+    input {
+      margin-right: 8px;
+      accent-color: #155e75;
+    }
+    textarea {
+      display: block;
+      box-sizing: border-box;
+      width: 100%;
+      font: inherit;
+      border: 1px solid #74859c;
+      border-radius: 8px;
+      padding: 12px;
+    }
+    .task {
+      white-space: pre-line;
+    }
+    button {
+      font: inherit;
+      background: #164e63;
+      color: white;
+      border: 0;
+      border-radius: 7px;
+      padding: 10px 18px;
+      cursor: pointer;
+    }
+    button:focus-visible,
+    input:focus-visible,
+    textarea:focus-visible {
+      outline: 3px solid #b45309;
+      outline-offset: 3px;
+    }
+    .note {
+      padding: 16px;
+      background: #e5eef7;
+      border-left: 4px solid #155e75;
+    }
+    @media print {
+      body {
+        background: white;
+        font-size: 12pt;
+      }
+      main {
+        padding: 0;
+      }
+      button,
+      .no-print {
+        display: none;
+      }
+      fieldset {
+        border: 1px solid #999;
+      }
+      textarea {
+        height: 120px;
+      }
+    }
+  </style>
+  <main>
+    <p>INTRODUCTION TO DATA SCIENCE</p>
+    <h1>แบบทดสอบ บท 07–08<br />ฉบับนักศึกษา</h1>
+    <p class="note">
+      ปรนัย 34 ข้อ ข้อละ 1 คะแนน เลือกคำตอบเดียว • ภาคปฏิบัติ 5 งาน รวม 24
+      คะแนน<br />Q26–Q34 และ P04–P05 เป็นส่วนเสริมจาก notebooks<br />หน้านี้ใช้ทดลองกรอกและพิมพ์
+      ไม่มีเฉลย ไม่มีระบบส่งคำตอบหรือบันทึกอัตโนมัติ
+      เมื่อปิดหรือโหลดใหม่คำตอบจะหาย ให้บันทึกคำตอบก่อนออกจากหน้า
+    </p>
+    <p class="no-print">
+      <button type="button" onclick="saveAnswers()">
+        ดาวน์โหลดคำตอบที่กรอก (.json)
+      </button>
+      <button type="button" onclick="window.print()">พิมพ์ / บันทึก PDF</button>
+    </p>
+    <form id="quiz">
+      <fieldset>
+        <legend>
+          Q01 · ข้อใดอธิบาย Machine Learning (ML) และความสัมพันธ์กับ Artificial
+          Intelligence (AI) ได้ถูกต้องที่สุด
+        </legend>
+        <label
+          ><input type="radio" name="Q01" value="A" /> A. ML เป็นส่วนหนึ่งของ AI
+          ที่ใช้ข้อมูลเรียนรู้แบบแผนเพื่อทำงาน เช่น การทำนาย</label
+        ><label
+          ><input type="radio" name="Q01" value="B" /> B. AI เป็นส่วนหนึ่งของ ML
+          และทุกระบบ AI ต้องฝึกจากข้อมูลเสมอ</label
+        ><label
+          ><input type="radio" name="Q01" value="C" /> C. ML
+          คือการเขียนกฎทุกกรณีด้วยมือ โดยไม่ใช้ข้อมูลเรียนรู้</label
+        ><label
+          ><input type="radio" name="Q01" value="D" /> D. ML
+          หมายถึงระบบที่สร้างข้อความสนทนาเท่านั้น</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q02 · ทีมมีอีเมลเก่า 2,000 ฉบับ โดยแต่ละฉบับถูกระบุแล้วว่า “สแปม” หรือ
+          “ไม่ใช่สแปม” และต้องการทำนายประเภทของอีเมลใหม่
+          งานนี้เป็นการเรียนรู้แบบใด
+        </legend>
+        <label
+          ><input type="radio" name="Q02" value="A" /> A. Unsupervised learning:
+          clustering</label
+        ><label
+          ><input type="radio" name="Q02" value="B" /> B. Supervised learning:
+          classification</label
+        ><label
+          ><input type="radio" name="Q02" value="C" /> C. Supervised learning:
+          regression</label
+        ><label
+          ><input type="radio" name="Q02" value="D" /> D. Reinforcement
+          learning</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q03 · ร้านต้องการแบ่งลูกค้าเป็นกลุ่มจากรูปแบบการซื้อ
+          โดยยังไม่มีชื่อกลุ่มหรือคำตอบกำกับล่วงหน้า วิธีใดตรงกับโจทย์นี้
+        </legend>
+        <label
+          ><input type="radio" name="Q03" value="A" /> A. Regression
+          เพื่อทำนายชื่อกลุ่มเป็นจำนวนเงินบาท</label
+        ><label
+          ><input type="radio" name="Q03" value="B" /> B. Classification
+          โดยใช้ชื่อกลุ่มที่ยังไม่มีเป็นคำตอบฝึก</label
+        ><label
+          ><input type="radio" name="Q03" value="C" /> C. Reinforcement learning
+          โดยให้รางวัลทุกครั้งที่อ่านข้อมูล</label
+        ><label
+          ><input type="radio" name="Q03" value="D" /> D. Clustering ซึ่งเป็น
+          unsupervised learning</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q04 · หุ่นยนต์ในเกมจำลองเลือกเดินซ้ายหรือขวา
+          แล้วได้รับรางวัลเมื่อถึงเป้าหมาย
+          เป้าหมายการฝึกคือให้ได้รางวัลสะสมสูงขึ้น ลักษณะนี้ตรงกับข้อใด
+        </legend>
+        <label
+          ><input type="radio" name="Q04" value="A" /> A. Supervised
+          regression</label
+        ><label
+          ><input type="radio" name="Q04" value="B" /> B. Unsupervised
+          clustering</label
+        ><label
+          ><input type="radio" name="Q04" value="C" /> C. Reinforcement
+          learning</label
+        ><label
+          ><input type="radio" name="Q04" value="D" /> D.
+          การคำนวณค่าเฉลี่ยแบบไม่มีการเรียนรู้</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q05 · มีข้อมูลลูกค้าที่แต่ละแถวเป็นอิสระกัน
+          ทีมต้องเลือกความซับซ้อนของโมเดลและรายงานผลสุดท้ายบนข้อมูลที่ไม่เคยใช้เลือกโมเดล
+          ควรใช้ชุดข้อมูลอย่างไร
+        </legend>
+        <label
+          ><input type="radio" name="Q05" value="A" /> A. ฝึกบน test แล้วใช้
+          train รายงานผลสุดท้าย</label
+        ><label
+          ><input type="radio" name="Q05" value="B" /> B. ฝึกบน train
+          เลือกโมเดลด้วย validation และใช้ test ประเมินครั้งสุดท้าย</label
+        ><label
+          ><input type="radio" name="Q05" value="C" /> C.
+          รวมทุกชุดแล้วเลือกโมเดลที่มี training error ต่ำสุด</label
+        ><label
+          ><input type="radio" name="Q05" value="D" /> D. เลือกโมเดลจาก test
+          ซ้ำจนพอใจแล้วรายงานคะแนน test เดิม</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q06 · หลังแบ่ง train/validation/test แล้ว
+          ต้องเติมค่าว่างด้วยค่าเฉลี่ยและปรับสเกล
+          ขั้นตอนใดลดการรั่วไหลของข้อมูลในการทดลองนี้
+        </legend>
+        <label
+          ><input type="radio" name="Q06" value="A" /> A.
+          คำนวณค่าเฉลี่ยและสเกลจากข้อมูลทุกชุดก่อนฝึก</label
+        ><label
+          ><input type="radio" name="Q06" value="B" /> B. คำนวณจาก test
+          เท่านั้นเพราะเป็นข้อมูลใหม่</label
+        ><label
+          ><input type="radio" name="Q06" value="C" /> C.
+          คำนวณแยกในแต่ละชุดแล้วใช้สเกลคนละชุด</label
+        ><label
+          ><input type="radio" name="Q06" value="D" /> D.
+          เรียนรู้ค่าเฉลี่ยและสเกลจาก train แล้วใช้ค่าเดิมแปลง validation และ
+          test</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q07 · บนโจทย์เดียวกัน baseline มี RMSE = 12 หน่วย โมเดลเส้นตรงมี train
+          RMSE = 11 และ validation RMSE = 12
+          ขณะที่โมเดลที่ยืดหยุ่นขึ้นลดทั้งสองค่าได้มาก
+          รูปแบบนี้สนับสนุนข้อวินิจฉัยใด
+        </legend>
+        <label
+          ><input type="radio" name="Q07" value="A" /> A. เส้นตรงอาจ underfit
+          เพราะความซับซ้อนไม่พอ</label
+        ><label
+          ><input type="radio" name="Q07" value="B" /> B. เส้นตรง overfit
+          แน่นอนเพราะ train error สูง</label
+        ><label
+          ><input type="radio" name="Q07" value="C" /> C. Validation error
+          ต้องเป็นศูนย์จึงจะวินิจฉัยได้</label
+        ><label
+          ><input type="radio" name="Q07" value="D" /> D. ข้อมูลพิสูจน์ว่าไม่มี
+          noise</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q08 · ฝึกโมเดลชนิดเดิมด้วยชุดฝึกหลายชุดที่สุ่มจากประชากรเดียวกัน
+          แล้วค่าทำนายที่ตำแหน่ง x เดิมเปลี่ยนมาก ปรากฏการณ์นี้ตรงกับความหมายใด
+        </legend>
+        <label
+          ><input type="radio" name="Q08" value="A" /> A. Bias ต่ำเสมอ</label
+        ><label
+          ><input type="radio" name="Q08" value="B" /> B. Residual
+          ทุกค่าต้องเป็นศูนย์</label
+        ><label
+          ><input type="radio" name="Q08" value="C" /> C. Variance สูง</label
+        ><label
+          ><input type="radio" name="Q08" value="D" /> D. R² เท่ากับ 1
+          เสมอ</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q09 · ทดลองบนข้อมูลและการแบ่งชุดเดียวกัน ได้ RMSE ดังนี้: degree 1 →
+          train 8, validation 9; degree 3 → train 3, validation 4; degree 12 →
+          train 0.2, validation 11 หากใช้ validation RMSE
+          เป็นเกณฑ์เพียงเกณฑ์เดียว ควรเลือกอะไร
+        </legend>
+        <label
+          ><input type="radio" name="Q09" value="A" /> A. degree 12 เพราะ
+          training error ต่ำสุด</label
+        ><label
+          ><input type="radio" name="Q09" value="B" /> B. degree 3 เพราะ
+          validation error ต่ำสุด</label
+        ><label
+          ><input type="radio" name="Q09" value="C" /> C. degree 1
+          เพราะโมเดลง่ายที่สุดเสมอ</label
+        ><label
+          ><input type="radio" name="Q09" value="D" /> D.
+          ทั้งสามเท่ากันเพราะใช้ข้อมูลชุดเดียวกัน</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q10 · กำหนด model = LinearRegression() และเตรียม X_train, y_train,
+          X_test แล้ว ลำดับคำสั่งใดฝึกโมเดลและทำนายข้อมูล test ถูกต้อง
+        </legend>
+        <label
+          ><input type="radio" name="Q10" value="A" /> A. model.predict(X_train,
+          y_train); model.fit(X_test)</label
+        ><label
+          ><input type="radio" name="Q10" value="B" /> B. model.fit(X_test,
+          y_test); model.predict(X_train)</label
+        ><label
+          ><input type="radio" name="Q10" value="C" /> C. model.score(X_train);
+          model.fit(y_train)</label
+        ><label
+          ><input type="radio" name="Q10" value="D" /> D. model.fit(X_train,
+          y_train); model.predict(X_test)</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q11 · สำหรับ sklearn.linear_model.LinearRegression โดยใช้ค่าเริ่มต้น
+          model.score(X_test, y_test) คืนค่าอะไร
+        </legend>
+        <label
+          ><input type="radio" name="Q11" value="A" /> A. R²
+          ของโมเดลบนข้อมูลที่ส่งให้</label
+        ><label
+          ><input type="radio" name="Q11" value="B" /> B. MAE เสมอสำหรับ
+          estimator ทุกชนิด</label
+        ><label
+          ><input type="radio" name="Q11" value="C" /> C.
+          ร้อยละของค่าทำนายที่ตรงกับค่าจริงทุกหลัก</label
+        ><label
+          ><input type="radio" name="Q11" value="D" /> D. ค่าความชันของ feature
+          ตัวแรก</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q12 · ทีมใช้ LLM ร่างโค้ดประเมินโมเดลจากคำอธิบายข้อมูล
+          ขั้นตอนใดเหมาะสมก่อนใช้ผลสรุปในรายงาน
+        </legend>
+        <label
+          ><input type="radio" name="Q12" value="A" /> A. คัดลอกผลตัวเลขที่ LLM
+          แต่งขึ้นโดยไม่รันโค้ด</label
+        ><label
+          ><input type="radio" name="Q12" value="B" /> B.
+          ถือว่าโค้ดถูกต้องทันทีเพราะอ่านเข้าใจง่าย</label
+        ><label
+          ><input type="radio" name="Q12" value="C" /> C. รันกับข้อมูลที่อนุญาต
+          ตรวจการแบ่งชุดและ metric แล้วเทียบผลกับหลักฐานจริง</label
+        ><label
+          ><input type="radio" name="Q12" value="D" /> D.
+          ส่งข้อมูลส่วนบุคคลทั้งหมดไปยังทุกบริการเพื่อให้คำตอบละเอียดที่สุด</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q13 · โมเดลประมาณค่าไฟรายเดือนเป็น ŷ = 200 + 4x โดย x คือไฟฟ้าที่ใช้
+          (kWh) และ ŷ คือค่าไฟ (บาท) ถ้า x = 150 kWh โมเดลทำนายค่าไฟเท่าใด
+        </legend>
+        <label><input type="radio" name="Q13" value="A" /> A. 350 บาท</label
+        ><label><input type="radio" name="Q13" value="B" /> B. 600 บาท</label
+        ><label><input type="radio" name="Q13" value="C" /> C. 800 บาท</label
+        ><label><input type="radio" name="Q13" value="D" /> D. 1,400 บาท</label>
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q14 · โมเดลค่าเช่า (บาท/เดือน) คือ ŷ = 3,000 + 200×พื้นที่(ตร.ม.) +
+          500×จำนวนห้อง โดยข้อมูลเป็นการสังเกต ความหมายที่เหมาะสมของ 200
+          คือข้อใด
+        </legend>
+        <label
+          ><input type="radio" name="Q14" value="A" /> A. พื้นที่เพิ่ม 1 ตร.ม.
+          ทำให้ค่าเช่าจริงเพิ่ม 200 บาทเสมอในทุกห้องพัก</label
+        ><label
+          ><input type="radio" name="Q14" value="B" /> B. เมื่อจำนวนห้องคงเดิม
+          พื้นที่เพิ่ม 1 ตร.ม. สัมพันธ์กับค่าเช่าที่โมเดลทำนายเพิ่ม 200
+          บาท/เดือน</label
+        ><label
+          ><input type="radio" name="Q14" value="C" /> C.
+          พื้นที่อธิบายค่าเช่าได้ 200 เปอร์เซ็นต์</label
+        ><label
+          ><input type="radio" name="Q14" value="D" /> D.
+          ห้องพักทุกแห่งมีค่าเช่าอย่างน้อย 200 บาท</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q15 · Ordinary Least Squares (OLS) สำหรับ Linear Regression
+          เลือกพารามิเตอร์โดยทำให้ค่าใดต่ำที่สุดบนชุดฝึก
+        </legend>
+        <label
+          ><input type="radio" name="Q15" value="A" /> A. ผลรวมกำลังสองของ
+          residual ซึ่ง residual = y − ŷ</label
+        ><label
+          ><input type="radio" name="Q15" value="B" /> B.
+          ผลรวมของค่าทำนายทั้งหมด</label
+        ><label
+          ><input type="radio" name="Q15" value="C" /> C. จำนวน features
+          เสมอโดยไม่ดู error</label
+        ><label
+          ><input type="radio" name="Q15" value="D" /> D. ผลรวม residual
+          แบบไม่ยกกำลังสอง</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q16 · ค่าจริงของระยะเวลาส่งสินค้า 3 รายการคือ [10, 20, 30] นาที
+          โมเดลทำนาย [12, 18, 33] นาที ค่า MAE เท่าใด (ปัดทศนิยม 2 ตำแหน่ง)
+        </legend>
+        <label><input type="radio" name="Q16" value="A" /> A. 1.00 นาที</label
+        ><label><input type="radio" name="Q16" value="B" /> B. 5.67 นาที</label
+        ><label><input type="radio" name="Q16" value="C" /> C. 2.33 นาที</label
+        ><label><input type="radio" name="Q16" value="D" /> D. 7.00 นาที</label>
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q17 · สำหรับค่าจริง [10, 20, 30] นาที และค่าทำนาย [12, 18, 33] นาที
+          ค่า MSE และ RMSE เป็นเท่าใด (ปัดทศนิยม 2 ตำแหน่ง)
+        </legend>
+        <label
+          ><input type="radio" name="Q17" value="A" /> A. MSE = 2.33 นาที²; RMSE
+          = 1.53 นาที</label
+        ><label
+          ><input type="radio" name="Q17" value="B" /> B. MSE = 5.67 นาที²; RMSE
+          = 2.38 นาที</label
+        ><label
+          ><input type="radio" name="Q17" value="C" /> C. MSE = 17.00 นาที²;
+          RMSE = 4.12 นาที</label
+        ><label
+          ><input type="radio" name="Q17" value="D" /> D. MSE = 5.67 นาที; RMSE
+          = 2.38 นาที²</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q18 · บนชุดประเมินที่ y ไม่ได้มีค่าเท่ากันทุกแถว โมเดลมี R² = −0.25
+          โดยใช้นิยาม R² = 1 − SSE/SST ข้อใดถูกต้อง
+        </legend>
+        <label
+          ><input type="radio" name="Q18" value="A" /> A. โมเดลทำนายได้แม่นยำ
+          −25 เปอร์เซ็นต์</label
+        ><label
+          ><input type="radio" name="Q18" value="B" /> B.
+          ค่าดังกล่าวเป็นไปไม่ได้เพราะ R² ต้องอยู่ระหว่าง 0 และ 1</label
+        ><label
+          ><input type="radio" name="Q18" value="C" /> C. โมเดลมี correlation
+          เท่ากับ −0.25 เสมอ</label
+        ><label
+          ><input type="radio" name="Q18" value="D" /> D. SSE ของโมเดลมากกว่า
+          SSE ของการทำนายทุกแถวด้วยค่าเฉลี่ย y ของชุดประเมินนั้น</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q19 · กราฟ residual = y − ŷ
+          เทียบกับค่าทำนายของโมเดลเส้นตรงมีรูปโค้งชัดเจน:
+          บวกที่ปลายสองด้านและลบตรงกลาง ควรตรวจประเด็นใดเป็นอันดับแรก
+        </legend>
+        <label
+          ><input type="radio" name="Q19" value="A" /> A.
+          ความสัมพันธ์ที่โมเดลยังอธิบายไม่ครบ เช่น รูปแบบไม่เป็นเส้นตรง</label
+        ><label
+          ><input type="radio" name="Q19" value="B" /> B.
+          ชื่อไฟล์ยาวเกินไป</label
+        ><label
+          ><input type="radio" name="Q19" value="C" /> C. โมเดลมี R² = 1
+          แน่นอน</label
+        ><label
+          ><input type="radio" name="Q19" value="D" /> D. Residual
+          ไม่มีหน่วยวัด</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q20 · ในกราฟ residual เทียบกับค่าทำนาย
+          จุดกระจายแคบเมื่อค่าทำนายต่ำและบานออกเมื่อค่าทำนายสูง
+          รูปแบบนี้ตั้งข้อสงสัยต่อสมมติฐานใดโดยตรง
+        </legend>
+        <label
+          ><input type="radio" name="Q20" value="A" /> A.
+          ข้อมูลต้องเป็นภาพเท่านั้น</label
+        ><label
+          ><input type="radio" name="Q20" value="B" /> B. ทุก feature
+          ต้องเป็นจำนวนเต็ม</label
+        ><label
+          ><input type="radio" name="Q20" value="C" /> C.
+          ความแปรปรวนของความคลาดเคลื่อนคงที่</label
+        ><label
+          ><input type="radio" name="Q20" value="D" /> D. จำนวนแถว train
+          ต้องเท่ากับ test</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q21 · ต้องเปรียบเทียบ Ridge โดย feature
+          หนึ่งมีหน่วยบาทและอีกตัวมีหน่วยกิโลเมตร ขั้นตอนใดเหมาะสมเพื่อให้
+          penalty ไม่ขึ้นกับความต่างของสเกลโดยไม่จำเป็น
+        </legend>
+        <label
+          ><input type="radio" name="Q21" value="A" /> A. ใช้ StandardScaler และ
+          Ridge ใน Pipeline แล้ว fit ด้วยชุดฝึกของแต่ละรอบเท่านั้น</label
+        ><label
+          ><input type="radio" name="Q21" value="B" /> B. คูณ target
+          ให้เป็นศูนย์ทุกแถว</label
+        ><label
+          ><input type="radio" name="Q21" value="C" /> C. ปรับสเกลจากข้อมูล test
+          เท่านั้น</label
+        ><label
+          ><input type="radio" name="Q21" value="D" /> D. เพิ่มค่า alpha จน
+          coefficient ทุกตัวเท่ากับ 1</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q22 · เมื่อใช้ Lasso กับ features ที่ปรับสเกลแล้วและเลือก alpha
+          อย่างเหมาะสม คุณสมบัติใดช่วยในการเลือก feature
+        </legend>
+        <label
+          ><input type="radio" name="Q22" value="A" /> A. Lasso
+          รับประกันว่าเลือกได้เฉพาะตัวแปรที่เป็นสาเหตุจริง</label
+        ><label
+          ><input type="radio" name="Q22" value="B" /> B. Lasso อาจทำให้
+          coefficient บางตัวเป็นศูนย์พอดี</label
+        ><label
+          ><input type="radio" name="Q22" value="C" /> C. Lasso
+          ทำให้จำนวนแถวข้อมูลเพิ่มขึ้น</label
+        ><label
+          ><input type="radio" name="Q22" value="D" /> D. Lasso รับประกันว่า
+          validation error เท่ากับศูนย์</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q23 · ข้อใดเปรียบเทียบ Ridge และ Lasso ได้ถูกต้องในกรณีทั่วไป
+        </legend>
+        <label
+          ><input type="radio" name="Q23" value="A" /> A. ทั้งสองมีหน้าที่เพิ่ม
+          training fit จนผ่านทุกจุดเท่านั้น</label
+        ><label
+          ><input type="radio" name="Q23" value="B" /> B. Ridge ใช้ L1 และ Lasso
+          ใช้ L2</label
+        ><label
+          ><input type="radio" name="Q23" value="C" /> C. ทั้งสองเลือกค่า alpha
+          จาก final test เสมอ</label
+        ><label
+          ><input type="radio" name="Q23" value="D" /> D. Ridge ใช้ L2
+          เพื่อลดขนาด coefficients; Lasso ใช้ L1
+          และอาจทำให้บางตัวเป็นศูนย์</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q24 · ทีมทดสอบ feature subset และค่า alpha หลายแบบ
+          เพื่อเลือกโมเดลก่อนรายงานผลสุดท้าย ควรดำเนินการอย่างไร
+        </legend>
+        <label
+          ><input type="radio" name="Q24" value="A" /> A. ใช้ final test
+          เลือกทั้ง features และ alpha แล้วเรียกผลเดิมว่า unseen
+          evaluation</label
+        ><label
+          ><input type="radio" name="Q24" value="B" /> B. เลือกแบบที่ train R²
+          สูงที่สุดเพียงอย่างเดียว</label
+        ><label
+          ><input type="radio" name="Q24" value="C" /> C. เลือกด้วย validation
+          หรือ cross-validation ภายใน train แล้วประเมินแบบที่เลือกบน final
+          test</label
+        ><label
+          ><input type="radio" name="Q24" value="D" /> D. สลับ y ของ test
+          จนคะแนนดีขึ้น</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q25 · โมเดลยอดใช้ไฟฟ้าฝึกจากอุณหภูมิ 20–35 °C ผู้ใช้ป้อน 50 °C
+          ข้อใดเป็นคำอธิบายที่เหมาะสม
+        </legend>
+        <label
+          ><input type="radio" name="Q25" value="A" /> A. คำนวณค่าทำนายได้
+          แต่เป็น extrapolation
+          จึงต้องระวังความน่าเชื่อถือนอกช่วงข้อมูลฝึก</label
+        ><label
+          ><input type="radio" name="Q25" value="B" /> B. หากโค้ดรันสำเร็จ
+          แปลว่าผลถูกต้องแน่นอน</label
+        ><label
+          ><input type="radio" name="Q25" value="C" /> C.
+          สมการเส้นตรงทำนายนอกช่วงข้อมูลไม่ได้ในทางคณิตศาสตร์</label
+        ><label
+          ><input type="radio" name="Q25" value="D" /> D. อุณหภูมิ 50 °C
+          ต้องถูกแทนด้วย 0 เสมอ</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q26 · ต้องการให้ Linear Regression
+          แทนผลของวันจันทร์ถึงวันอาทิตย์แบบแยกกัน
+          โดยไม่บังคับว่าผลเพิ่มเท่ากันจากเลขวัน 1 ไป 7 วิธีใดเหมาะสม
+        </legend>
+        <label
+          ><input type="radio" name="Q26" value="A" /> A. ใช้เลขวัน 1–7 เป็น
+          feature เดียวและอ้างว่าผลแต่ละวันอิสระกัน</label
+        ><label
+          ><input type="radio" name="Q26" value="B" /> B.
+          ลบทิ้งทุกแถวที่เป็นวันหยุด</label
+        ><label
+          ><input type="radio" name="Q26" value="C" /> C. ใช้ one-hot encoding
+          ของวันในสัปดาห์ และกำหนดวันอ้างอิงเมื่อโมเดลมี intercept</label
+        ><label
+          ><input type="radio" name="Q26" value="D" /> D.
+          ใช้ยอดเป้าหมายของวันนั้นแทนชื่อวัน</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q27 · เวลา 20:00 วันนี้ ทีมต้องทำนายจำนวนจักรยานรวมของวันพรุ่งนี้
+          ข้อมูลใดเหมาะจะเป็น feature สำหรับการใช้งานตามเวลานี้
+        </legend>
+        <label
+          ><input type="radio" name="Q27" value="A" /> A.
+          จำนวนจักรยานรวมจริงของวันพรุ่งนี้</label
+        ><label
+          ><input type="radio" name="Q27" value="B" /> B.
+          ชื่อวันในสัปดาห์ของวันพรุ่งนี้และพยากรณ์อากาศที่เผยแพร่ก่อน 20:00
+          วันนี้</label
+        ><label
+          ><input type="radio" name="Q27" value="C" /> C.
+          ปริมาณฝนรวมจริงตลอดวันพรุ่งนี้ซึ่งทราบหลังวันนั้นจบ</label
+        ><label
+          ><input type="radio" name="Q27" value="D" /> D. Residual
+          ของวันพรุ่งนี้ที่คำนวณจากค่าจริงหลังเหตุการณ์</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q28 · ต้องใช้ bootstrap เพื่อศึกษาความไม่แน่นอนของ coefficient
+          จากข้อมูลรายวันที่ค่าความคลาดเคลื่อนมีความสัมพันธ์ต่อเนื่องหลายวัน
+          แนวทางใดเหมาะสมกว่า ordinary bootstrap ที่สุ่มแถวอิสระ
+        </legend>
+        <label
+          ><input type="radio" name="Q28" value="A" /> A. ทำซ้ำค่า coefficient
+          เดิมโดยไม่สุ่มข้อมูล</label
+        ><label
+          ><input type="radio" name="Q28" value="B" /> B. สุ่มค่า y แยกจาก X
+          เพื่อให้ไม่สัมพันธ์กัน</label
+        ><label
+          ><input type="radio" name="Q28" value="C" /> C. ใช้ final test
+          เลือกช่วงความเชื่อมั่นให้แคบที่สุด</label
+        ><label
+          ><input type="radio" name="Q28" value="D" /> D.
+          พิจารณาสุ่มเป็นบล็อกของวันที่ติดกันและอธิบายเหตุผลการเลือกความยาวบล็อก</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q29 · ต้องการสร้างข้อมูลจำลอง x และ y ที่ค่าเฉลี่ยของ y ลดลง 3
+          หน่วยเมื่อ x เพิ่ม 1 หน่วย และค่าเฉลี่ยของ y เมื่อ x = 0 เท่ากับ 5
+          กำหนดให้ noise ε มีค่าเฉลี่ย 0 และเป็นอิสระจาก x สมการใดตรงกับโจทย์
+        </legend>
+        <label
+          ><input type="radio" name="Q29" value="A" /> A. y = 3x + 5 + ε</label
+        ><label
+          ><input type="radio" name="Q29" value="B" /> B. y = −3x − 5 + ε</label
+        ><label
+          ><input type="radio" name="Q29" value="C" /> C. y = −3x + 5 + ε</label
+        ><label
+          ><input type="radio" name="Q29" value="D" /> D. y = 5x − 3 + ε</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q30 · ใช้ข้อมูลฝึก n = 50 แถวชุดเดิมเพื่อเลือกความชันและ intercept
+          ของเส้นตรง นิยาม SSE = Σ(y − ŷ)² และ MSE = SSE/50 หากไม่มี
+          regularization ความสัมพันธ์ระหว่างพารามิเตอร์ที่ลด SSE
+          กับพารามิเตอร์ที่ลด MSE คือข้อใด
+        </legend>
+        <label
+          ><input type="radio" name="Q30" value="A" /> A.
+          มีชุดพารามิเตอร์ที่ทำให้ต่ำสุดเหมือนกัน เพราะหารด้วยค่าคงที่บวก
+          50</label
+        ><label
+          ><input type="radio" name="Q30" value="B" /> B. MSE
+          ต้องได้ความชันต่ำกว่า SSE 50 เท่าเสมอ</label
+        ><label
+          ><input type="radio" name="Q30" value="C" /> C. MSE
+          มีค่าต่ำสุดเฉพาะที่หลายจุด แต่ SSE ไม่มี</label
+        ><label
+          ><input type="radio" name="Q30" value="D" /> D. SSE ใช้ residual ส่วน
+          MSE ไม่ใช้ residual</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q31 · รันโค้ดเดิมซ้ำในสภาพแวดล้อมเดิม โดยเริ่มด้วย rng =
+          np.random.default_rng(42) ทุกครั้ง แล้วใช้ rng ตัวนี้สร้างทั้ง x และ
+          noise ใน y = 2x + 1 + noise ข้อใดถูกต้อง
+        </legend>
+        <label
+          ><input type="radio" name="Q31" value="A" /> A. ข้อมูลจะเหมือนเดิม และ
+          sample correlation ของ x กับ y ต้องเท่ากับ 1 เสมอ</label
+        ><label
+          ><input type="radio" name="Q31" value="B" /> B.
+          ข้อมูลจะเปลี่ยนทุกครั้ง เพราะเป็นข้อมูลสุ่ม</label
+        ><label
+          ><input type="radio" name="Q31" value="C" /> C. ค่า seed ทำให้ noise
+          ของทุกแถวเท่ากับศูนย์</label
+        ><label
+          ><input type="radio" name="Q31" value="D" /> D.
+          ข้อมูลจะเหมือนเดิมเมื่อเรียกสุ่มตามลำดับเดิม แต่ seed ไม่ได้บังคับว่า
+          sample correlation ต้องเท่ากับ 1</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q32 · ใช้ PolynomialFeatures(degree=3, include_bias=False)
+          กับข้อมูลที่มี feature x เพียงตัวเดียว เมื่อ x = 2 เวกเตอร์ features
+          ที่ได้และความหมายของ Linear Regression ที่ฝึกบนเวกเตอร์นี้คือข้อใด
+        </legend>
+        <label
+          ><input type="radio" name="Q32" value="A" /> A. [1, 2, 3]
+          และโมเดลต้องเป็นเส้นตรงใน x เท่านั้น</label
+        ><label
+          ><input type="radio" name="Q32" value="B" /> B. [2, 4, 8]
+          และโมเดลยังเป็นเชิงเส้นในสัมประสิทธิ์ แม้กราฟเทียบ x อาจโค้ง</label
+        ><label
+          ><input type="radio" name="Q32" value="C" /> C. [2, 6, 18]
+          และโมเดลไม่สามารถมี intercept</label
+        ><label
+          ><input type="radio" name="Q32" value="D" /> D. [1, 2, 4, 8] และ
+          include_bias=False หมายถึงลบ noise ออก</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q33 · GaussianFeatures ในแบบฝึกหัดกำหนด centers = linspace(train_min,
+          train_max, N), σ = width_factor × ระยะห่างระหว่าง centers และ φ(x) =
+          exp(−0.5((x − center)/σ)²) ถ้า train_min = 0, train_max = 10, N = 6
+          และ width_factor = 0.5 ค่า σ ที่ใช้จริงเท่าใด
+        </legend>
+        <label
+          ><input type="radio" name="Q33" value="A" /> A. 0.5 หน่วยของ x เพราะ
+          width_factor คือ σ โดยตรง</label
+        ><label
+          ><input type="radio" name="Q33" value="B" /> B. 5 หน่วยของ x เพราะคูณ
+          width_factor กับ train_max</label
+        ><label
+          ><input type="radio" name="Q33" value="C" /> C. 1 หน่วยของ x เพราะ
+          centers ห่างกัน 2 หน่วย</label
+        ><label
+          ><input type="radio" name="Q33" value="D" /> D. 6 หน่วยของ x
+          เพราะเท่ากับจำนวน centers</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>
+          Q34 · ต้องการศึกษาผลของ regularization โดยเปรียบเทียบ OLS, Ridge และ
+          Lasso บน Gaussian basis ของข้อมูลชุดเดียวกัน การทดลองใดแยกผลของ
+          penalty ได้เหมาะสมที่สุด
+        </legend>
+        <label
+          ><input type="radio" name="Q34" value="A" /> A. ใช้
+          train/validation/test เดียวกัน ใช้ centers ความกว้าง และการปรับสเกลที่
+          fit จาก train เดียวกัน แล้วเปรียบเทียบ validation โดยเก็บ test
+          ไว้ตอนสุดท้าย</label
+        ><label
+          ><input type="radio" name="Q34" value="B" /> B. OLS ใช้ 5 basis, Ridge
+          ใช้ 10 basis และ Lasso ใช้ 30 basis แล้วสรุปว่าความต่างทั้งหมดเกิดจาก
+          penalty</label
+        ><label
+          ><input type="radio" name="Q34" value="C" /> C. ให้แต่ละโมเดลเลือก
+          features จาก test ก่อน แล้วใช้ training error ตัดสิน</label
+        ><label
+          ><input type="radio" name="Q34" value="D" /> D. ใช้ค่า alpha
+          ตัวเลขเดียวกันแล้วถือว่า Ridge กับ Lasso มีความแรงของ penalty
+          เท่ากันเสมอ</label
+        >
+      </fieldset>
+      <fieldset>
+        <legend>P01 · ฝึกและประเมินโมเดลจริง (6 คะแนน)</legend>
+        <p class="task">
+          ใช้ไฟล์ regression_development.csv และ regression_final_test.csv
+          ในชุดนี้ (ข้อมูลจำลองการใช้พลังงาน หน่วย kWh) เปิด starter_lab.ipynb
+          หรือใช้ Python ของตนเอง แบ่ง development 72 แถวแรกเป็น train และ 18
+          แถวท้ายเป็น validation ตามลำดับวันที่ 1) ใช้ LinearRegression สร้าง
+          Simple model จาก temp_forecast_c และ Multiple model จาก
+          temp_forecast_c กับ working_day เพื่อทำนาย energy_kwh 2) fit เฉพาะ
+          train จากนั้น predict และรายงาน MAE, RMSE, R² บน validation
+          ของทั้งสองโมเดล พร้อมอธิบายความหมายของ model.score สำหรับ estimator
+          นี้ 3) เลือกหนึ่งแบบด้วย validation RMSE และระบุเหตุผล เก็บ final test
+          ไว้จนจบ P03 ส่งโค้ดสำคัญ ผลรัน และคำอธิบายลงช่องตอบ หรืออ้างชื่อไฟล์
+          notebook ที่ส่งผ่านช่องทางชั้นเรียนที่ผู้สอนกำหนด
+          ห้ามใส่ข้อมูลบุคคลจริง
+        </p>
+        <label>คำตอบ<textarea name="P01" rows="8"></textarea></label>
+      </fieldset>
+      <fieldset>
+        <legend>P02 · ทดลอง Bias–Variance (4 คะแนน)</legend>
+        <p class="task">
+          ใช้ข้อมูลจำลอง y = sin(x) + noise (noise ปกติ ส่วนเบี่ยงเบนมาตรฐาน
+          0.25) ตาม protocol ใน starter_lab.ipynb (ถ้าใช้ notebook เดิม
+          ให้ปรับให้ตรง protocol นี้: x กระจายสม่ำเสมอในช่วง 0–6, train 35 จุด,
+          validation 200 จุดด้วย seed 2026 คงที่) ทดลอง polynomial degree 1, 3,
+          12 ด้วยข้อมูลฝึกจำนวนเท่ากัน และประเมินบน validation เดียวกัน
+          ทำซ้ำด้วย seed 11, 22, 33 รายงาน train/validation RMSE และค่าทำนายที่
+          x = 2.0 ของแต่ละ degree ในแต่ละรอบ สรุปว่า degree ใดมีหลักฐาน
+          underfit/overfit ในผลที่ได้ และค่าทำนายของแต่ละ degree
+          ไวต่อการเปลี่ยนข้อมูลฝึกอย่างไร ระบุข้อจำกัดของการใช้เพียง 3 รอบ
+          โดยไม่บังคับว่ารูปแบบผลต้องตรงทฤษฎีทุกครั้ง
+        </p>
+        <label>คำตอบ<textarea name="P02" rows="8"></textarea></label>
+      </fieldset>
+      <fieldset>
+        <legend>P03 · Residual และการปรับปรุงโมเดล (6 คะแนน)</legend>
+        <p class="task">
+          ต่อจาก P01 ตรวจ residual = y − ŷ บน validation 18 แถวของ Multiple
+          model ด้วยกราฟ residual เทียบ fitted value และเทียบวันที่
+          แสดงอย่างน้อยหนึ่งประเด็นที่เห็นจริง และข้อจำกัดของการอ่านกราฟ
+          เปรียบเทียบ candidate ที่กำหนด: (A) LinearRegression: temp_forecast_c,
+          working_day; (B) LinearRegression: temp_forecast_c, temp_forecast_c²,
+          working_day; (C) และ (D) ใช้ features แบบ B แต่ใช้ StandardScaler →
+          Ridge(alpha=0.1) และ Ridge(alpha=10) ตามลำดับ fit ทุกขั้นตอนด้วย train
+          เดียวกับ P01 และเปรียบเทียบ validation RMSE เลือกด้วย validation RMSE
+          (หากต่างกันต่ำกว่า 0.01 kWh ให้เลือกแบบที่ง่ายกว่า แล้วใช้ alpha
+          ต่ำกว่าถ้าโครงสร้างเท่ากัน) อธิบาย trade-off และเหตุใดเพิ่ม
+          feature/penalty แล้วไม่จำเป็นต้องดีขึ้น จากนั้น refit แบบที่เลือกบน
+          development ทั้ง 90 แถว และประเมิน final test
+          เพียงรอบรายงานสุดท้ายด้วย MAE, RMSE, R² ห้ามเลือกแบบใหม่จากผล test
+          ส่งกราฟ ตารางผล โค้ด และข้อสรุป ไม่ต้องทำให้ผล test
+          ดีที่สุดเพื่อรับคะแนน
+        </p>
+        <label>คำตอบ<textarea name="P03" rows="8"></textarea></label>
+      </fieldset>
+      <fieldset>
+        <legend>P04 · ส่วนเสริม: ข้อมูลตามเวลาและ bootstrap (4 คะแนน)</legend>
+        <p class="task">
+          ใช้ coefficient ของ temp_forecast_c ใน Multiple model แบบ A ของ P03
+          เป็นตัวอย่าง อธิบายหน่วยและความหมายเมื่อ working_day คงที่
+          โดยไม่สรุปเป็นเหตุและผล จาก development ทั้ง 90 วัน ให้ทดลอง ordinary
+          pairs bootstrap (สุ่มคู่ X,y เป็นแถวพร้อมใส่คืน) 300 รอบ และ
+          moving-block pairs bootstrap 300 รอบ โดยสุ่มบล็อก 7
+          วันที่ติดกันพร้อมใส่คืน ต่อบล็อกจนได้อย่างน้อย 90 แถวแล้วตัดเหลือ 90
+          แถว กำหนด seed 20260922 ทั้งสองวิธี รายงาน percentile 2.5 และ 97.5 ของ
+          coefficient จากแต่ละวิธี
+          อธิบายว่าแต่ละวิธีสมมติอะไรเกี่ยวกับการพึ่งพากันของข้อมูล
+          และเหตุใดช่วงที่ได้ไม่ใช่ช่วงทำนายสำหรับการใช้ไฟฟ้าของวันใหม่
+          พร้อมยกตัวอย่าง feature วันในสัปดาห์หนึ่งแบบที่รู้ได้ ณ เวลาพยากรณ์
+          บล็อก 7 วันเป็นค่ากำหนดเพื่อการฝึก
+          ไม่อ้างว่าเหมาะที่สุดหรือรับประกันช่วงความเชื่อมั่น 95%
+        </p>
+        <label>คำตอบ<textarea name="P04" rows="8"></textarea></label>
+      </fieldset>
+      <fieldset>
+        <legend>
+          P05 · ส่วนเสริมใหม่: Gaussian basis และการเปรียบเทียบ penalty (4
+          คะแนน)
+        </legend>
+        <p class="task">
+          ใช้ starter_gaussian_lab.ipynb สร้างข้อมูล y = sin(x) + ε โดย x ~
+          Uniform(0,10) และ ε มีการแจกแจงปกติที่ค่าเฉลี่ย 0
+          และส่วนเบี่ยงเบนมาตรฐาน 0.15 เป็นอิสระจาก x สร้าง train 50 จุดด้วย
+          seed 41, validation 100 จุดด้วย seed 42 และ final test 100 จุดด้วย
+          seed 43 โดยแต่ละชุดเริ่ม generator ของตนเอง 1) แสดง
+          PolynomialFeatures(degree=3, include_bias=False) ของ x ใน train 3
+          จุดแรก และสร้าง Gaussian basis จำนวน N=12 ด้วย centers
+          ห่างเท่ากันตั้งแต่ train_min ถึง train_max, width_factor=0.8,
+          σ=width_factor×ระยะห่างของ centers รายงาน centers, σ และขนาด feature
+          matrix ห้ามใช้ validation/test กำหนด centers หรือสเกล 2) fit Gaussian
+          basis และ StandardScaler ด้วย train แล้วใช้
+          basis/สเกลชุดเดียวกันเปรียบเทียบ LinearRegression (OLS),
+          Ridge(alpha=0.1) และ Lasso(alpha=0.001,max_iter=100000,tol=1e-6)
+          โดยไม่จูนค่าอื่น รายงาน train และ validation RMSE ของทั้งสามแบบ 3)
+          เลือก validation RMSE ต่ำสุด ถ้าต่างไม่เกิน 1e-6 ให้ใช้ลำดับ OLS,
+          Ridge, Lasso เลือกตัวแรก เก็บโมเดลและ preprocessing ที่ฝึกบน train
+          เดิม แล้วรายงาน final-test RMSE ของตัวที่เลือกเพียงแบบเดียว ไม่ refit
+          หรือเลือกใหม่จาก test 4) อธิบายจากผลจริงว่า penalty เปลี่ยนผลอย่างไร
+          เหตุใด alpha ตัวเลขเดียวกันข้าม Ridge/Lasso ไม่รับประกันแรง penalty
+          เท่ากัน และเหตุใดการเปลี่ยน N พร้อมชนิด penalty
+          ทำให้แยกสาเหตุของผลต่างได้ยาก ส่งโค้ด ตารางผล และกราฟ basis หรือ
+          prediction พร้อมคำอธิบาย ข้อมูลเป็นการจำลองเพื่อฝึก
+          ไม่ใช้สรุปผลระบบจริง
+        </p>
+        <label>คำตอบ<textarea name="P05" rows="8"></textarea></label>
+      </fieldset>
+    </form>
+    <p id="status" role="status" aria-live="polite"></p>
+    <script>
+      function saveAnswers() {
+        const entries = Object.fromEntries(
+          new FormData(document.getElementById("quiz")).entries(),
+        );
+        const b = new Blob(
+          [
+            JSON.stringify(
+              { quiz: "introds-ch07-ch08-20260922-v2", answers: entries },
+              null,
+              2,
+            ),
+          ],
+          { type: "application/json;charset=utf-8" },
+        );
+        const u = URL.createObjectURL(b),
+          a = document.createElement("a");
+        a.href = u;
+        a.download = "my_quiz_answers.json";
+        a.click();
+        setTimeout(() => URL.revokeObjectURL(u), 1000);
+        document.getElementById("status").textContent =
+          "สร้างไฟล์คำตอบแล้ว ตรวจโฟลเดอร์ดาวน์โหลด ไม่มีการส่งข้อมูลออกจากหน้านี้";
+      }
+    </script>
+  </main>
+</html>

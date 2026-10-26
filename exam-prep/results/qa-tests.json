@@ -1,0 +1,25 @@
+{
+  "passed": 20,
+  "checks": [
+    "Quiz all 48 correct => 48/48, 100%",
+    "Quiz blank answers => zero, correct chapter denominators",
+    "Changing an answer after grading clears stale score/filter label",
+    "Quiz restore answer and chapter; reset requires explicit confirmation",
+    "Malformed JSON recovers without crashing",
+    "Null/array answer maps are rejected safely",
+    "Invalid option indices and score values are sanitized",
+    "Storage unavailable retains in-memory interaction and warns",
+    "Exam disabled before start, 24 questions plus 6 written",
+    "Exam submission yields 60/60 and self-grading brings total to 100",
+    "Exam reloaded after deadline auto-submits and locks answers",
+    "Deadline enforced in answer handler even between timer ticks",
+    "Written edit after deadline is excluded and original restored",
+    "Missing deadline recovers to ready state instead of NaN timer",
+    "Exam timer maintains remaining duration across navigation/reload",
+    "Read progress tolerates malformed stored object",
+    "One Dark Pro present in every generated code block",
+    "Highlighted code retains exact source text for all three Python files",
+    "Copy retains Python indentation; wrap and expand toggle accessibly",
+    "Search renders untrusted query as text, not markup"
+  ]
+}

@@ -1,0 +1,20 @@
+/* Final QA: static One Dark Pro and keyboard-safe navigation. */
+.code-wrap{background:#282c34;border:1px solid #3e4451;border-radius:10px;overflow:hidden;margin:20px 0}
+.code-toolbar{display:flex;align-items:center;justify-content:space-between;gap:12px;padding:12px 16px;background:#21252b;border-bottom:1px solid #3e4451;color:#abb2bf}
+.code-language{font:600 13px/1.6 Consolas,monospace;color:#e5c07b}
+.code-language small{font:11px/1.4 Tahoma,sans-serif;color:#abb2bf}
+.code-buttons{display:flex;flex-wrap:wrap;gap:6px}
+.code-buttons button{position:static;background:#343b46;color:#e6e8ec;border:1px solid #535d6d;font-size:12px;padding:5px 10px}
+.code-buttons button[aria-pressed="true"],.code-buttons button[aria-expanded="true"]{background:#46566b}
+.code-wrap pre{margin:0;padding:20px 22px;max-height:560px;overflow:auto;border-radius:0;background:#282c34;color:#abb2bf;font:14px/1.8 "Cascadia Code",Consolas,"Leelawadee UI",monospace;tab-size:4;white-space:pre;overscroll-behavior:contain}
+.code-wrap.expanded pre{max-height:none}
+.code-wrap.wrapped pre{white-space:pre-wrap;overflow-wrap:anywhere}
+.code-wrap pre::selection,.code-wrap pre *::selection{background:#3e4451}
+.question{min-width:0}.question legend{max-width:100%;overflow-wrap:anywhere}.question label span{min-width:0;overflow-wrap:anywhere}.question input{flex-shrink:0}
+.assessment-progress{font-size:13px;color:#526c72;margin:14px 0}
+dialog::backdrop{background:#102d32aa}
+.skip-link{position:fixed;top:-100px;left:12px;z-index:50;background:#d5f17e;color:#172c32;padding:12px;border-radius:7px}.skip-link:focus{top:8px}
+#search-results:empty{display:none}.shell .sidebar a{min-height:42px}.recovered-state{background:#fff5e2;padding:12px;border-radius:8px}
+@media(max-width:650px){.code-toolbar{align-items:flex-start;flex-direction:column;padding:12px}.code-wrap pre{padding:16px;font-size:13px}.code-buttons button{min-height:36px}.toolbar button{min-height:40px}.sidebar{visibility:hidden}.shell.menu-open .sidebar{visibility:visible}.hero:after{pointer-events:none}.question{padding:18px 12px}}
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}.sidebar{transition:none}}
+@media print{.code-toolbar{display:none}.code-wrap{border:1px solid #bbb;background:white;overflow:visible}.code-wrap pre{max-height:none!important;overflow:visible;white-space:pre-wrap!important;background:white!important;color:black!important;font-size:9pt;overflow-wrap:anywhere}.code-wrap pre span{color:black!important}.skip-link{display:none}}
