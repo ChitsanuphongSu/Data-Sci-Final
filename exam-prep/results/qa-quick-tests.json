@@ -1,0 +1,18 @@
+{
+  "passed": 13,
+  "checks": [
+    "Set 1: all six chapters score 15/15 independently; 90 unique questions",
+    "Set 1: blank grading, wrong filter and edits invalidate only current chapter",
+    "Set 1: reset cancellation and confirmation preserve other chapters",
+    "Set 1: restore chapter, answer and score",
+    "Set 2: all six chapters score 15/15 independently; 90 unique questions",
+    "Set 2: blank grading, wrong filter and edits invalidate only current chapter",
+    "Set 2: reset cancellation and confirmation preserve other chapters",
+    "Set 2: restore chapter, answer and score",
+    "Separate storage keys prevent set 1 and set 2 mixing",
+    "Malformed/null arrays, invalid options and invalid chapter handled safely",
+    "Storage unavailable still allows answering and grading with warning",
+    "JSON export has readable selected answer and graded explanation",
+    "Independent arithmetic audit for numerical practice examples"
+  ]
+}

@@ -19,3 +19,10 @@
 
 ## Scope and limits
 Content review covers the supplied chapter summaries, source explanations, formulas, worked examples and assessment rubrics. Automated checks supplement review; they do not prove every sentence or predict the real exam. Written responses are self-graded. The browser test used the in-app Chromium browser, not every browser/device. Print CSS was inspected; a physical print was not tested. Local file storage varies by browser; GitHub Pages HTTPS is the recommended reading entry point.
+
+## Quick Quiz extension — 27 October 2026
+Added 2 sets of 90 original questions, each with 15 questions per chapter (7–12), topic coverage tables, explanations and chapter review links. Correct choices are deterministically shuffled, avoiding a repeating answer-position pattern.
+
+13 additional automated tests cover all 12 chapter/set combinations at full score, blank grading, per-chapter grade invalidation, wrong-only filters, reset cancellation/confirmation, persistence, set isolation, malformed/unavailable storage, JSON export and independently recomputed numerical examples. Existing 20 behavior tests and 31 formula checks remain applicable. Static links/anchors now cover 17 HTML documents.
+
+Browser extension checks: both sets × six chapters × viewport widths 1366/390/320 = 36 cases with no horizontal body overflow. Verified chapter navigation, grading from the bottom control, explanatory feedback and correct-answer highlighting.

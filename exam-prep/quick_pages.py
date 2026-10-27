@@ -1,0 +1,17 @@
+"""Register the two chapter-based practice pages with the existing site builder."""
+from quick_questions import SETS
+import html
+
+TITLES={7:'พื้นฐาน Machine Learning',8:'Regression',9:'Classification',10:'Ensemble Methods',11:'Clustering',12:'Model Validation & Selection'}
+
+def register(add):
+    for number,questions in SETS.items():
+        focus='พื้นฐาน สูตร และกระบวนการ' if number==1 else 'ประยุกต์ คำนวณ และวิเคราะห์ข้อผิดพลาด'
+        coverage=''.join('<tr><th scope="row">บท '+str(ch)+'</th><td>'+html.escape(' · '.join(q['topic'] for q in questions if q['ch']==ch))+'</td></tr>' for ch in TITLES)
+        other=2 if number==1 else 1
+        body=f'''<section><h2>ฝึกทีละบท แล้วอธิบายเหตุผลให้ได้</h2><p>ชุดที่ {number} · {focus} · 90 ข้อ แยกบท 7–12 บทละ 15 ข้อ เลือกคำตอบที่เหมาะสมที่สุดเพียงข้อเดียว ไม่จับเวลา</p><p>ตรวจคำตอบเฉพาะบทที่กำลังทำ พร้อมเฉลยและเหตุผลทุกข้อ เปลี่ยนคำตอบหลังตรวจจะยกเลิกคะแนนของบทนั้นเพื่อให้ตรวจใหม่ ความคืบหน้าของแต่ละบทและแต่ละชุดบันทึกแยกกันในเบราว์เซอร์</p><p>โจทย์แต่งใหม่ตามหัวข้อบทเรียนและแล็บในเว็บ ไม่ใช่ข้อสอบจริง ครอบคลุมหัวข้อในตารางด้านล่าง ควรอ่านสรุปและฝึกเขียนโค้ดประกอบ ไม่ใช้คะแนนชุดนี้แทนการรับรองความพร้อมทุกกรณี</p><a class="pill secondary" href="quick-quiz-{other}.html">ไป Quick Quiz ชุดที่ {other} →</a></section>
+<details class="recall quick-coverage"><summary>แผนผังหัวข้อที่ครอบคลุม · ชุดที่ {number}</summary><div class="table-wrap"><table><thead><tr><th>บท</th><th>หัวข้อที่ฝึก 15 ข้อ</th></tr></thead><tbody>{coverage}</tbody></table></div><p class="muted">อ้างอิงสรุปบท 7–12 และ Code & Labs; ชุดที่ 2 มีหัวข้อเสริม SVM/PCA/LDA จากสไลด์ Introduction ด้วย</p></details>
+<nav class="quick-chapters" aria-label="เลือกบทสำหรับ Quick Quiz">{''.join(f'<button class="secondary" data-quick-chapter="{ch}" aria-pressed="false">บท {ch}</button>' for ch in TITLES)}</nav>
+<section><h2 id="quick-heading" tabindex="-1">เลือกบทเพื่อเริ่มฝึก</h2><div class="quick-controls"><label for="quick-chapter">บทที่ต้องการฝึก</label><select id="quick-chapter">{''.join(f'<option value="{ch}">บท {ch} · {title}</option>' for ch,title in TITLES.items())}</select><a id="quick-review" href="chapter-07.html">อ่านสรุปบทนี้ →</a></div><p id="quick-progress" aria-live="polite"></p><p id="quick-warning" class="storage-warning" hidden></p><div class="quick-controls"><button id="quick-grade">ตรวจคำตอบบทนี้</button><button id="quick-wrong" class="secondary" aria-pressed="false" disabled>ทบทวนข้อผิด / ยังไม่ตอบ</button><button id="quick-reset" class="secondary">เริ่มบทนี้ใหม่</button><button id="quick-export" class="secondary">ดาวน์โหลดคำตอบทั้งชุด</button></div><div id="quick-result" tabindex="-1" aria-live="polite"></div><div id="quick-questions"></div><div class="quick-controls"><button id="quick-grade-bottom">ตรวจคำตอบบทนี้</button><button id="quick-prev" class="secondary">← บทก่อนหน้า</button><button id="quick-next">บทถัดไป →</button></div></section>
+<dialog id="quick-confirm" aria-labelledby="quick-confirm-text"><p id="quick-confirm-text"></p><div class="quick-controls"><button id="quick-confirm-yes">ยืนยันล้างบทนี้</button><button id="quick-cancel" class="secondary">ยกเลิก</button></div></dialog><noscript><p class="note">โปรดเปิด JavaScript เพื่อแสดงคำถามและตรวจคะแนน Quick Quiz</p></noscript>'''
+        add(f'quick-quiz-{number}',f'Quick Quiz ชุดที่ {number}',focus+' · แยกบทละ 15 ข้อ พร้อมเฉลยอธิบาย',body,tag='QUICK QUIZ',source='เรียบเรียงใหม่จากสรุปบท 7–12, เอกสารต้นฉบับ และ P01–P05; ดูหัวข้อครอบคลุมในหน้านี้และหมวดแหล่งข้อมูล')

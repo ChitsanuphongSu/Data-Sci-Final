@@ -57,3 +57,12 @@ python exam-prep/verify_content.py
 ต้องรัน highlight หลัง build ทุกครั้ง สีถูกสร้างเป็น HTML ล่วงหน้า ไม่เรียก CDN
 เมื่อแก้ CSS/JS ให้เพิ่มค่า `?v=` ใน build.py เพื่อป้องกันแคชเก่า
 GitHub Pages ใช้ branch main และ root `/` มี `.nojekyll`
+
+## Quick Quiz แยกบท (เพิ่มเติม)
+- `quick-quiz-1.html`: พื้นฐาน สูตร และกระบวนการ 90 ข้อ
+- `quick-quiz-2.html`: ประยุกต์ คำนวณ และวิเคราะห์ข้อผิดพลาด 90 ข้อ
+- แต่ละชุดมีบท 7–12 บทละ 15 ข้อ พร้อมตารางหัวข้อครอบคลุม เฉลย เหตุผล และลิงก์ทบทวน
+- คะแนนและคำตอบแยกต่อบทและต่อชุด; ปุ่มเริ่มใหม่ล้างเฉพาะบทปัจจุบัน
+- แก้เนื้อหาที่ `quick_questions.py`, หน้าเว็บที่ `quick_pages.py`, ระบบฝึกที่ `quick-quiz.js`
+- ตรวจเพิ่มด้วย `python exam-prep/quick_questions.py` และ `node exam-prep/tooling/qa-quick.mjs`
+- หลังแก้โจทย์/ตัวเลือกที่เผยแพร่แล้ว ต้องเพิ่มเวอร์ชัน storage key ใน quick-quiz.js เพื่อไม่ใช้คำตอบชุดเก่ากับคำถามใหม่
